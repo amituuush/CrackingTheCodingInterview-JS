@@ -1,0 +1,41 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>
+  %20 for whitespace
+</title>
+</head>
+<body>
+<script>
+// implement a method to replace all spaces in a string with %20
+// questions: does one white space substituted for %20 equate to a single space or any amount of sequential spaces?
+// will the input be a string?
+// up to what length is the string?
+// should I take into account cases with no spaces or a bad input?
+// the output should just be a string with %20 inserted?
+
+// split str input into array
+// loop over array and any values equal to ' ' set equal to '%20'
+// rejoin string
+
+function replaceWhitespace(str) {
+// take care of edge cases: bad input, no spaces
+	if (typeof str !== 'string') {
+		return false;
+	}
+
+	var strArr = str.split('');
+	for (var i = 0; i < strArr.length; i++) {
+		if (strArr[i] === ' ') {
+			strArr[i] = '%20';
+		}
+	}
+	var newStr = strArr.join('');
+	return newStr;
+
+}
+
+console.log(replaceWhitespace('  hey there dude '));
+</script>
+</body>
+</html>
