@@ -1,0 +1,53 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>
+String Compression
+</title>
+</head>
+<body>
+<script>
+// implement method to perform string compression:
+// aabcccaaad => a2b1c3a3
+// questions: account for bad inputs (not string? spaces? symbols? empty string?)
+
+// loop through string, keep track of the current letter, a current letter counter
+// if first loop, set current letter and counter to 1
+// if letter is the same as current letter, counter++
+// once letter changes, concat current letter, counter to output string, change current letter to new current letter and set counter to 1
+// after other if statements, if last loop, concat current letter and count
+// return output string
+function stringCompression(str) {
+	var compStr = '';
+	var currentLetter = '';
+	var counter = 0;
+	// account for bad inputs, errors here
+	if (typeof str !== 'string' || str === '') {
+		return false;
+	}
+
+	for (var i = 0; i < str.length; i++) {
+		if (str[i] === ' ') {
+			continue;
+		} else if (i === 0) {
+			currentLetter = str[i];
+			counter = 1;
+		} else if (str[i] === currentLetter) {
+			counter++;
+		} else if (str[i] !== currentLetter) {
+			compStr += currentLetter + counter.toString();
+			currentLetter = str[i];
+			counter = 1;
+		}
+
+		if (i === str.length - 1) {
+			compStr += currentLetter + counter.toString();
+		}
+	}
+	return compStr;
+}
+
+console.log(stringCompression('aaabbcccc'));
+</script>
+</body>
+</html>
