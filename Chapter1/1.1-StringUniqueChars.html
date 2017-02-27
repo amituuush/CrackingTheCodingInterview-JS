@@ -16,16 +16,18 @@ function hasUniqueChars(str) {
 	var charCount = {};
 	for (var i = 0; i < str.length; i++) {
 		var letter = str[i];
-		if (charCount["letter"] === undefined) {
-			charCount["letter"] = 1;
-		} else {
+		if (charCount[letter] === undefined) {
+			charCount[letter] = 1;
+		} else if (charCount[letter] === 1) {
+			console.log(charCount);
 			return false;
 		}
 	}
+	console.log(charCount);
 	return true;
 }
 
-console.log(hasUniqueChars('hello there'));
+console.log(hasUniqueChars('helo tt'));
 
 </script>
 </body>
