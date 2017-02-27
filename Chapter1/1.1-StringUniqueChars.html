@@ -1,0 +1,33 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>
+
+</title>
+</head>
+<body>
+<script>
+// implement an algorithm to determine if a string has all unique characters without using a data structure
+// 'hello there'
+// create object to mark down if characters are present with a prop of the character name and a value of the frequence
+// if prop val is greater than 1, return false, 
+// return true outside loop
+function hasUniqueChars(str) {
+	var charCount = {};
+	for (var i = 0; i < str.length; i++) {
+		var letter = str[i];
+		if (charCount["letter"] === undefined) {
+			charCount["letter"] = 1;
+		} else {
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log(hasUniqueChars('hello there'));
+
+</script>
+</body>
+</html>
+
