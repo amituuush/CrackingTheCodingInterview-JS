@@ -8,10 +8,7 @@
 <body>
 <script>
 // implement an algorithm to determine if a string has all unique characters without using a data structure. Return all characters that are duplicates along with the number of times they occur and the indices at which they occur
-// 'hello there'
-// create object to mark down if characters are present with a prop of the character name and a value of the frequence
-// if prop val is greater than 1, return false, 
-// return true outside loop
+
 function hasUniqueChars(str) {
 	var charCount = {};
 	for (var i = 0; i < str.length; i++) {
@@ -32,6 +29,9 @@ function hasUniqueChars(str) {
 	}
 	return dupCharCount;
 }
+
+// time complexity: 2n => n
+// space complexity: n
 
 console.log(hasUniqueChars('helo ttadfdsfvdafsfawes'));
 
