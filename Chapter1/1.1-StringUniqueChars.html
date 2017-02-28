@@ -26,8 +26,11 @@ function hasUniqueChars(str) {
 
 	var dupCharCount = {};
 	for (char in charCount) {
-		console.log(charCount.char)
+		if (charCount[char][0] > 1) {
+			dupCharCount[char] = charCount[char];
+		}
 	}
+	return dupCharCount;
 }
 
 console.log(hasUniqueChars('helo ttadfdsfvdafsfawes'));
