@@ -33,12 +33,21 @@ function isRotation(str1, str2) {
 		return false;
 	}
 
-	// check if everything behind first two letters in str2 is equal to str1[]
+	// check if everything behind first half str2 is equal to second half str1
+	// grab first half of str2
+	var firstHalfOfStr2 = str2.slice(0, firstTwoIndex);
+	// grab second half of Str1
+	var secondHalfOfStr1 = str1.slice(str2.length - firstTwoIndex, str1.length);
 
+	//compare
+	if (firstHalfOfStr2 !== secondHalfOfStr1) {
+		return false;
+	}
+	return true;
 	//if both those are true, return true
 }
 
-console.log(isRotation('waterbottle', 'erbottlewat'));
+console.log(isRotation('waterbottle', 'terbottlewa'));
 </script>
 </body>
 </html>
