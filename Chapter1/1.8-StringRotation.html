@@ -7,9 +7,38 @@ String Rotation
 </head>
 <body>
 <script>
-// create isSubstring method that checks if one word is a substring of another. Given 2 strings, s1 and s2, write code to check if s2 is a totation of s1 using only one call to isSubstring ('waterbottle' is a rotation of 'erbottlewat')
+// create isSubstring method that checks if one word is a substring of another. Given 2 strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring ('waterbottle' is a rotation of 'erbottlewat')
+// 'waterbottle'
+// 'erbottlewat'
+// questions: will strings be the same length?
+// account for bad input? already same string?
 
+function isRotation(str1, str2) {
+	// determine first 2 letters of word
+	var firstTwoLetters = str1[0] + str1[1];
 
+	// check if everything to the right of first two letters in str2 occurrence equal str1 letters. check if string from those 2 letters in str2 to the end (determine how many letters that is) is equal to that many letters starting in str1
+	// find where firstTwoLetters occurs in str2
+	var firstTwoIndex = 0;
+	for (var i = 0; i < str2.length; i++) {
+		if (str2[i] + str2[i + 1] === firstTwoLetters) {
+			firstTwoIndex = i;
+		}
+	}
+	// grab second half of str2
+	var secondHalfOfStr2 = str2.slice(firstTwoIndex, str2.length);
+	//compare to str1
+	var firstHalfOfStr1 = str1.slice(0, str2.length - firstTwoIndex);
+	if (firstHalfOfStr1 !== secondHalfOfStr2) {
+		return false;
+	}
+
+	// check if everything behind first two letters in str2 is equal to str1[]
+
+	//if both those are true, return true
+}
+
+console.log(isRotation('waterbottle', 'erbottlewat'));
 </script>
 </body>
 </html>
